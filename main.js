@@ -17,13 +17,10 @@
 
     var state = $(".state").text().replace(/State: /g,'');
     var crimeE = $(".rate").text().replace(/Crime Rate: /g,'');
-    console.log("RATE : " + crimeE);
-    // var crimeE = Math.floor(Math.random() * 100);
-
+    
     if(crimeE > 75) {
       addRow(state, crimeE, "HIGH");
       $("path:hover, circle:hover").css('fill', '#ff0011');
-
     }
     else if(crimeE < 75 && crimeE > 50) {
       addRow(state, crimeE, "MEDIUM");
@@ -53,9 +50,12 @@
       "</td><td id='dangerE'>" + danger + "</td></tr>");
   }
 
-  $.getJSON('https://api.usa.gov/crime/fbi/sapi/api/participation/dl/national?API_KEY=HtrUjiet5nq07XWQ0hY5f6YegK6Iab0WZ76phfK0').success(function(data) {
-    console.log(JSON.parse(data));
-  })
+  // $.getJSON('https://api.usa.gov/crime/fbi/sapi/api/participation/dl/national?API_KEY=HtrUjiet5nq07XWQ0hY5f6YegK6Iab0WZ76phfK0').success(function(data) {
+  //   console.log(JSON.parse(data));
+  // })
+
+  var data = $.csv.toObjects("./crime-data.csv");
+  console.log("DATA: " + data);
 
   var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   if(ios) {
