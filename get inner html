@@ -1,0 +1,5 @@
+$("#g5").find('path').each(function() {
+    console.log($(this).context) })
+
+$("#g5").find('path').each(function() {
+    console.log($(this)[0]) })
