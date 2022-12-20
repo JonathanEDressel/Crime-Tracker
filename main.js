@@ -2,7 +2,7 @@
     $('#info-box').css('display','block');
     $('#info-box').html($(this).data('info'));
   });
-  
+
   jQuery(document).ready(function() {
     $("#stateE").text("Oregon");
     $("#crimeE").text("40");
@@ -49,13 +49,6 @@
     $("table tr:last").after("<tr><td id='stateE'>" + state + "</td><td id='crimeE'>" + crime + 
       "</td><td id='dangerE'>" + danger + "</td></tr>");
   }
-
-  // $.getJSON('https://api.usa.gov/crime/fbi/sapi/api/participation/dl/national?API_KEY=HtrUjiet5nq07XWQ0hY5f6YegK6Iab0WZ76phfK0').success(function(data) {
-  //   console.log(JSON.parse(data));
-  // })
-
-  var data = $.csv.toObjects("./crime-data.csv");
-  console.log("DATA: " + data);
 
   var ios = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
   if(ios) {
